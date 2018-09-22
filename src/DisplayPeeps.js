@@ -7,10 +7,8 @@
     url = 'https://chitter-backend-api.herokuapp.com/peeps') {
     return fetch(url)
       .then(function(response) {
-      return response.json();
-    }).then(function(data) {
-      return this.peeps = data;
-    })
+      return response.json()
+    }).then(data => this.peeps = data)
   };
 
   DisplayPeeps.prototype.eachPeepHTML = function(peeps = this.peeps) {
