@@ -13,6 +13,15 @@
     })
   };
 
+  DisplayPeeps.prototype.eachPeepHTML = function(peeps = this.peeps) {
+    returnedHTML = "<ul><div";
+    peeps.forEach(function(peep) {
+      returnedHTML += ` id=${peep.id}><li>${peep.body}</li>`
+    });
+    returnedHTML += "</div></ul>";
+    return returnedHTML;
+  }
+
   exports.DisplayPeeps = DisplayPeeps;
 
 })(this);

@@ -4,10 +4,9 @@ describe("DisplayPeeps", function() {
 
   beforeEach(function() {
 
-    var fetchPromise = new Promise(function(resolve, reject) {
+    var fetchPromise = new Promise(function(resolve) {
       promiseHelper = {
-        resolve: resolve,
-        reject: reject
+        resolve: resolve
       };
     });
 
@@ -38,7 +37,6 @@ describe("DisplayPeeps", function() {
         var response = new Response(JSON.stringify({
           id: 1
         }));
-        console.log(response)
         promiseHelper.resolve(response);
       });
 
@@ -49,6 +47,15 @@ describe("DisplayPeeps", function() {
         });
       });
     });
-
   });
+
+  describe("eachPeepHTML", function() {
+    it('returns the peeps in a HTML ready format', function() {
+      var peepData = [{"id":1,"body":"1st Peep"}];
+
+      expect(displayPeeps.eachPeepHTML(peepData)).toEqual("<ul><div id=1><li>1st Peep</li></div></ul>")
+
+    })
+  });
+
 });
