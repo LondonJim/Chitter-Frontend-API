@@ -12,9 +12,9 @@
   };
 
   DisplayPeeps.prototype.eachPeepHTML = function(peeps = this.peeps) {
-    returnedHTML = "<ul>";
+    returnedHTML = "<h3>All Peeps</h3><br><ul>";
     peeps.forEach(function(peep) {
-      returnedHTML += `<div class="well" id=${(peep.id)}><li>${(peep.body)}<br><i>- ${(peep.user.handle)}</i></li></div>`
+      returnedHTML += `<a href="#user/${peep.user.handle}" id=${(peep.id)}><div class="well"><li>${(peep.body)}<br><i>- ${(peep.user.handle)}</i></li></div></a>`
     });
     returnedHTML += "</ul>";
     return returnedHTML;

@@ -9,23 +9,29 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <script src="src/DisplayPeeps.js" ></script>
+    <script src="src/SingleUserPeeps.js"></script>
+    <script src="src/DisplayPeeps.js"></script>
     <script src="src/ChitterController.js"></script>
 
   </head>
   <body>
   <div class="container">
-    <h1>Chitter</h1>
-    <p>
-      <input type="text" id="addPeep" size="60" value="" />
-      <button type="button" id="addPeepButton" class="btn btn-primary">Add Peep</button>
 
+      <h1>Chitter Feed</h1>
+    <div>
+      <button type="button" id="Main Page" class="btn btn-primary">Main Page</button>
+    </div>
+
+    <p>
+      <div id="peeps">LOADING...</div>
     </p>
-    <p><div id="peeps">LOADING...</div></p>
+
   </div>
 
-  <script>newController = new ChitterController;
-          newController.updatePeepView();
+  <script>
+    newController = new ChitterController;
+    newController.updatePeepView();
   </script>
+
   </body>
 </html>

@@ -55,7 +55,7 @@ describe("DisplayPeeps", function() {
     it('returns the peeps in a HTML ready format', function() {
       var peepData = [{"id":1,"body":"1st Peep","user": {"handle": "Chitter User"}}];
 
-      expect(displayPeeps.eachPeepHTML(peepData)).toEqual(`<ul><div class="well" id=1><li>1st Peep<br><i>- Chitter User</i></li></div></ul>`);
+      expect(displayPeeps.eachPeepHTML(peepData)).toEqual(`<h3>All Peeps</h3><br><ul><a href="#user/Chitter User" id=1><div class="well"><li>1st Peep<br><i>- Chitter User</i></li></div></a></ul>`);
 
     });
   });
