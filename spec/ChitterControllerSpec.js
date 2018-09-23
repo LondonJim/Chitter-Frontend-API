@@ -12,7 +12,7 @@ describe("ChitterController", function() {
   describe(".updatePeepView", function() {
     it("can call the fetchpeeps function", function() {
       expect(chitterController.updatePeepView()).toEqual("fetched Peeps")
-    })
-  })
+    });
+  });
 
-})
+});
