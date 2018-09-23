@@ -34,15 +34,17 @@ describe("DisplayPeeps", function() {
     describe("gets a response on a successfull fetch", function() {
 
       beforeEach(function() {
-        var response = new Response(JSON.stringify({
-          id: 1
-        }));
+
+        var response = new Response(JSON.stringify({}));
         promiseHelper.resolve(response);
+
+        spyOn(displayPeeps, 'eachPeepHTML').and.returnValue("test data");
+
       });
 
-      it('resolves the promise with the id', function(done) {
-        displayPeeps.fetchPeeps().then(function(id) {
-          expect(id).toEqual({id: 1});
+      it('resolves the promise with the test data', function(done) {
+        displayPeeps.fetchPeeps().then(function(data) {
+          expect(data).toEqual("test data");
           done();
         });
       });
@@ -51,11 +53,11 @@ describe("DisplayPeeps", function() {
 
   describe("eachPeepHTML", function() {
     it('returns the peeps in a HTML ready format', function() {
-      var peepData = [{"id":1,"body":"1st Peep"}];
+      var peepData = [{"id":1,"body":"1st Peep","user": {"handle": "Chitter User"}}];
 
-      expect(displayPeeps.eachPeepHTML(peepData)).toEqual("<ul><div id=1><li>1st Peep</li></div></ul>")
+      expect(displayPeeps.eachPeepHTML(peepData)).toEqual(`<ul><div class="well" id=1><li>1st Peep<br><i>- Chitter User</i></li></div></ul>`);
 
-    })
+    });
   });
 
 });

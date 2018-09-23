@@ -3,9 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title>Chitter App</title>
-    <script src="src/DisplayPeeps.js" defer></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="src/DisplayPeeps.js" ></script>
+    <script src="src/ChitterController.js"></script>
+
   </head>
   <body>
-    <div id="peeps"></div>
+  <div class="container">
+    <h1>Chitter</h1>
+    <p>
+      <input type="text" id="addPeep" size="60" value="" />
+      <button type="button" id="addPeepButton" class="btn btn-primary">Add Peep</button>
+
+    </p>
+    <p><div id="peeps">LOADING...</div></p>
+  </div>
+
+  <script>newController = new ChitterController;
+          newController.updatePeepView();
+  </script>
   </body>
 </html>

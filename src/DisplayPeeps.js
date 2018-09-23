@@ -6,17 +6,17 @@
   DisplayPeeps.prototype.fetchPeeps = function(
     url = 'https://chitter-backend-api.herokuapp.com/peeps') {
     return fetch(url)
-      .then(function(response) {
-      return response.json()
-    }).then(data => this.peeps = data)
+      .then((response) => response.json())
+      .then((data) => this.peeps = data)
+      .then(() => (document.getElementById("peeps").innerHTML = this.eachPeepHTML()))
   };
 
   DisplayPeeps.prototype.eachPeepHTML = function(peeps = this.peeps) {
-    returnedHTML = "<ul><div";
+    returnedHTML = "<ul>";
     peeps.forEach(function(peep) {
-      returnedHTML += ` id=${peep.id}><li>${peep.body}</li>`
+      returnedHTML += `<div class="well" id=${(peep.id)}><li>${(peep.body)}<br><i>- ${(peep.user.handle)}</i></li></div>`
     });
-    returnedHTML += "</div></ul>";
+    returnedHTML += "</ul>";
     return returnedHTML;
   }
 
